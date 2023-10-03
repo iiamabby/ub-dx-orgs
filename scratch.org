@@ -1,0 +1,48 @@
+#+title: Scratch
+
+* Installing needed packages to run Scratch education
+** Scratch runs using NPM and Electron, so first we need to install these packages.
+#+BEGIN_SRC bash
+sudo rpm-ostree install npm rpm-build
+#+END_SRC
+** We need to reboot after any changes to the tree
+#+BEGIN_SRC bash
+systemctl reboot
+#+END_SRC
+** Now we need to install electron using npm and save the dependencies installed
+#+BEGIN_SRC bash
+npm install electron --save-dev
+npm install electron-installer-redhat
+#+END_SRC
+** Install and extract scratch-desktop
+#+BEGIN_SRC bash
+rm -rf /tmp/scratch-desktop
+mkdir /tmp/scratch-desktop
+wget --max-redirect 5 -c -O /tmp/scratch-desktop.exe 'https://downloads.scratch.mit.edu/desktop/Scratch%20Setup.exe' 7za x -aoa -y /tmp/scratch-desktop.exe -o /tmp/scratch-desktop
+#+END_SRC
+** Create an electon app
+#+BEGIN_SRC bash
+cp -rf ~/node_modules/electron/dist/* /tmp/scratch-desktop
+ln -fsr /tmp/scratch-desktop/electron /tmp/scratch-desktop/scratch-desktop
+#+END_SRC
+** Set permissions
+#+BEGIN_SRC bash
+chmod 755 /tmp/scratch-desktop/locales
+chmod 755 /tmp/scratch-desktop/swiftshader
+chmod 755 /tmp/scratch-desktop/resources
+chmod 755 /tmp/scratch-desktop/resources/static
+chmod 755 /tmp/scratch-desktop/resources/static/assets
+#+END_SRC
+** Get the icons
+#+BEGIN_SRC
+wget -c -O /tmp/scratch-desktop/resources/Icon.png 'https://scratch.mit.edu/images/download/icon.png'
+#+END_SRC
+** Create rpm package, this makes the thing run
+#+BEGIN_SRC bash
+wget -c -O /tmp/config-rpm.json 'https://gist.githubusercontent.com/lyshie/0c49393076b8b375ca1bd98c28f95fb0/raw/223cc112d99c3bdc1829fc25b19c260856134a82/config-rpm.json' ~/node_modules/.bin/electron-installer-redhat --config /tpm/config-rpm.json
+#+END_SRC
+** Run scratch
+#+BEGIN_SRC bash
+cd /tmp/scratch-desktop
+./scratch-desktop
+#+END_SRC
