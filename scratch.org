@@ -41,6 +41,10 @@ wget -c -O /tmp/scratch-desktop/resources/Icon.png 'https://scratch.mit.edu/imag
 #+BEGIN_SRC bash
 wget -c -O /tmp/config-rpm.json 'https://gist.githubusercontent.com/lyshie/0c49393076b8b375ca1bd98c28f95fb0/raw/223cc112d99c3bdc1829fc25b19c260856134a82/config-rpm.json' ~/node_modules/.bin/electron-installer-redhat --config /tpm/config-rpm.json
 #+END_SRC
+*** Clean up by mv to another location
+#+BEGIN_SRC bash
+mv /tmp/scratch-desktop ~/
+#+END_SRC
 ** Run scratch
 #+BEGIN_SRC bash
 cd /tmp/scratch-desktop
