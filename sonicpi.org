@@ -1,0 +1,13 @@
+#+title: Sonicpi
+
+* Basic install of sonic pi on Universal Blue System
+
+** Following the install process for Fedora based systems
+*** Install using flatpak
+#+BEGIN_SRC bash
+echo "1" | flatpak install -y flathub net.sonic_pi.SonicPi
+#+END_SRC
+*** Run using command line
+#+BEGIN_SRC bash
+flatpak run net.sonic_pi.SonicPi
+#+END_SRC

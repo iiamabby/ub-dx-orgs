@@ -1,6 +1,6 @@
 #+title: Scratch
 
-* Installing needed packages to run Scratch education
+* Installing Scratch on Universal Blue System
 ** Scratch runs using NPM and Electron, so first we need to install these packages.
 #+BEGIN_SRC bash
 sudo rpm-ostree install npm rpm-build
@@ -47,6 +47,6 @@ mv /tmp/scratch-desktop ~/
 #+END_SRC
 ** Run scratch
 #+BEGIN_SRC bash
-cd /tmp/scratch-desktop
+cd ~/scratch-desktop
 ./scratch-desktop
 #+END_SRC
