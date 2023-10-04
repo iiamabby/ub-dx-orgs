@@ -23,3 +23,9 @@ wget "https://download-cdn.jetbrains.com/idea/ideaIC-2021.2.3.tar.gz" && tar xvf
 #+BEGIN_SRC bash
 ./gradlew genIntelliJRun && ./gradlew runClient
 #+END_SRC
+
+*** NOTE running intelliJ
+**** To open intelliJ, it is not stored in /opt/idea/bin assuming due to permission system as /opt/ is read only.
+#+BEGIN_SRC bash
+cd idea-IC-212.5457.46/bin && ./idea.sh
+#+END_SRC
