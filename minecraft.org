@@ -6,3 +6,20 @@
 rpm-ostree install java-17-openjdk
 systemctl reboot
 #+END_SRC
+** Install Minecraft Forge
+#+BEGIN_SRC bash
+  mkdir minecraftforge && \
+  cd minecraftforge && \
+  wget "https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.0/forge-1.18.2-40.2.0-mdk.zip" -O temp.zip && \
+  unzip temp.zip && \
+  rm temp.zip
+  cd ~
+#+END_SRC
+** Install IntelliJ
+#+BEGIN_SRC bash
+wget "https://download-cdn.jetbrains.com/idea/ideaIC-2021.2.3.tar.gz" && tar xvf ideaIC-2021.2.3.tar.gz && sudo mv idea-IC-212.5457.46/ /opt/idea && rm ideaIC-2021.2.3.tar.gz
+#+END_SRC
+** Build gradle dependencies and run Minecraft
+#+BEGIN_SRC bash
+./gradlew genIntelliJRun && ./gradlew runClient
+#+END_SRC
