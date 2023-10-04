@@ -1,0 +1,8 @@
+#+title: Minecraft
+* Installing Minecraft Forge on Universal Blue System
+
+** Install openjdk-17
+#+BEGIN_SRC bash
+rpm-ostree install java-17-openjdk
+systemctl reboot
+#+END_SRC
